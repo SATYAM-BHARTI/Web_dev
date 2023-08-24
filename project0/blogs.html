@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>BLOGS</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #333;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 2rem 9%;
+            border-bottom-left-radius: 3rem;
+        }
+        
+        header .title {
+            font-size: 2rem;
+            font-weight: bolder;
+            color: #fff;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        
+        header .title span {
+            color: blue;
+        }
+        
+        header .topnav a {
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 0 .8rem;
+            text-decoration: none;
+        }
+
+        #menu-bar {
+            color: #fff;
+            border: .1rem solid #fff;
+            border-radius: .5rem;
+            font-size: 1.5rem;
+            padding: .5rem 1rem;
+            cursor: pointer;
+            display: none;
+        }
+
+        header .icons i {
+            font-size: 1.5rem;
+            color: #fff;
+            cursor: pointer;
+            margin-right: 2rem;
+            border: #fff;
+            border-color: #fff;
+        }
+        
+        .footer-distributed {
+            background: #444;
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+            box-sizing: border-box;
+            width: 100%;
+            font: bold 16px sans-serif;
+            text-align: left;
+            padding: 50px 60px 40px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Footer left */
+        
+        .footer-distributed .footer-left {
+            float: left;
+        }
+        /* The company logo */
+        
+        .footer-distributed h3 {
+            color: #ffffff;
+            font: normal 36px 'Roboto', cursive;
+            margin: 0 0 10px;
+        }
+        
+        .footer-distributed h3 span {
+            color: #5383d3;
+        }
+        /* Footer links */
+        
+        .footer-distributed .footer-links {
+            color: #ffffff;
+            margin: 0 0 10px;
+            padding: 0;
+        }
+        
+        .footer-distributed .footer-links a {
+            display: inline-block;
+            line-height: 1.8;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .footer-distributed .footer-company-name {
+            color: #8f9296;
+            font-size: 14px;
+            font-weight: normal;
+            margin: 0;
+        }
+        /* Footer social icons */
+        
+        .footer-distributed .footer-icons {
+            margin-top: 40px;
+        }
+        
+        .footer-distributed .footer-icons a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            background-color: #33383b;
+            border-radius: 2px;
+            font-size: 20px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 35px;
+            margin-right: 3px;
+            margin-bottom: 5px;
+        }
+        /* Footer Right */
+        
+        .footer-distributed .footer-right {
+            float: right;
+        }
+        
+        .footer-distributed .footer-right p {
+            display: inline-block;
+            vertical-align: top;
+            margin: 15px 42px 0 0;
+            color: #ffffff;
+        }
+        /* The contact form */
+        
+        .footer-distributed form {
+            display: inline-block;
+        }
+        
+        .footer-distributed form input,
+        .footer-distributed form textarea {
+            display: block;
+            border-radius: 3px;
+            box-sizing: border-box;
+            background-color: #1f2022;
+            box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+            border: none;
+            resize: none;
+            font: inherit;
+            font-size: 14px;
+            font-weight: normal;
+            color: #d1d2d2;
+            width: 400px;
+            padding: 18px;
+        }
+        
+        .footer-distributed ::-webkit-input-placeholder {
+            color: #5c666b;
+        }
+        
+        .footer-distributed ::-moz-placeholder {
+            color: #5c666b;
+            opacity: 1;
+        }
+        
+        .footer-distributed :-ms-input-placeholder {
+            color: #5c666b;
+        }
+        
+        .footer-distributed form input {
+            height: 55px;
+            margin-bottom: 15px;
+        }
+        
+        .footer-distributed form textarea {
+            height: 100px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-distributed form button {
+            border-radius: 3px;
+            background-color: #33383b;
+            color: #ffffff;
+            border: 0;
+            padding: 15px 50px;
+            font-weight: bold;
+            float: right;
+        }
+        
+        @media(max-width:991px) {
+            header {
+                padding: 1.5rem;
+            }
+            
+        }
+        
+        @media (max-width:768px) {
+            #menu-bar {
+                display: initial;
+            }
+            header .topnav {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                background: #333;
+                border-top: .1rem solid rgba(255, 255, 255, 0.2);
+                padding: 1rem 1.5rem;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            }
+            header .topnav.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            header .topnav a {
+                display: block;
+                border-radius: .5rem;
+                padding: 1rem;
+                margin: 1rem 0;
+                background: #222;
+            }
+           
+        }
+        
+        @media (max-width:450px) {
+            html {
+                font-size: 50%;
+            }
+        }
+        
+        .sec1{
+            margin-top: 120px;
+            margin-bottom: 10px;
+        }
+
+        .div1{
+            display: flex;
+            justify-content: space-around;
+        }
+        .div2{
+            background-color: #387c67;
+            width: 40vw;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .div4{
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .form{
+            display: flex;
+            justify-content: space-around;
+            background-color: #222;
+            margin: 50px;
+            height: 450px;
+            box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+        .form-control{
+            margin: 20px;
+            padding: 5px;
+            text-shadow: #1f2022;
+            font-size: 25px;
+        }
+
+        .form-control label {
+            display: block;
+            margin-bottom: 10px;
+            color: #e6caca;
+        }
+
+        .form-control input,
+        .form-control select,
+        .form-control textarea {
+            border: 1px solid #777;
+            border-radius: 2px;
+            font-family: inherit;
+            padding: 10px;
+            display: block;
+            width: 100%;
+        }
+
+        .h1{
+            color: #e6caca;
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .sub-form{
+            width: 40vw;
+        }
+
+        button {
+            background-color: #05c46b;
+            border: 1px solid #d0cdcd;
+            border-radius: 2px;
+            font-family: inherit;
+            font-size: 21px;
+            display: block;
+            width: 50%;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+
+        button:hover{
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="menu-bar" class="fa fa-bars"></div>
+
+        <a href="blogs.html" class="title"><span>B</span>LOGS</a>
+
+        <nav class="topnav">
+            <a href="header.html">Home</a>
+            <a href="travel.html">Destination</a>
+            <a href="about.html">About Us</a>
+
+        </nav>
+        <div class="icons">
+            <a href="try3.html" class="login">
+                <i class="fa fa-user" id="login-btn"></i>
+            </a>
+        </div>
+    </header>
+
+    <section class="sec1">
+        <div class="div1">
+            <div class="div2">
+                <div class="div3">
+                    <img src="images/1.jpg" alt="">
+                    <p >Satyam Bharti</p>
+                </div>
+                <div class="div4">
+                    <p>⭐⭐⭐⭐⭐</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eum repellendus atque esse eveniet, aut vel recusandae possimus impedit, sapiente officiis quam porro assumenda vitae nulla ipsum sit, quidem magni!</p>
+                </div>
+            </div>
+            <div class="div2">
+                <div class="div3">
+                    <img src="images/1.jpg" alt="">
+                    <p>Amalendu Maiti</p>
+                </div>
+                <div class="div4">
+                    <p>⭐⭐⭐⭐⭐</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non excepturi quam nam, impedit inventore quos facere natus illum tempora explicabo reiciendis ipsam quo obcaecati expedita sint a autem aut ea?</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="div1">
+            <div class="div2">
+                <div class="div3">
+                    <img src="images/1.jpg" alt="">
+                    <p>Satyam Sahni</p>
+                </div>
+                <div class="div4">
+                    <p>⭐⭐⭐⭐⭐</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non excepturi quam nam, impedit inventore quos facere natus illum tempora explicabo reiciendis ipsam quo obcaecati expedita sint a autem aut ea?</p>
+                </div>
+            </div>
+            <div class="div2">
+                <div class="div3">
+                    <img src="images/1.jpg" alt="">
+                    <p>Nikhil Kumar</p>
+                </div>
+                <div class="div4">
+                    <p>⭐⭐⭐⭐⭐</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non excepturi quam nam, impedit inventore quos facere natus illum tempora explicabo reiciendis ipsam quo obcaecati expedita sint a autem aut ea?</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="div1">
+            <div class="div2">
+                <div class="div3">
+                    <img src="images/1.jpg" alt="">
+                    <p>Mayank Jha</p>
+                </div>
+                <div class="div4">
+                    <p>⭐⭐⭐⭐⭐</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non excepturi quam nam, impedit inventore quos facere natus illum tempora explicabo reiciendis ipsam quo obcaecati expedita sint a autem aut ea?</p>
+                </div>
+            </div>
+            <div class="div2">
+                <div class="div3">
+                    <img src="images/1.jpg" alt="">
+                    <p>Partyush Nilav</p>
+                </div>
+                <div class="div4">
+                    <p>⭐⭐⭐⭐⭐</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non excepturi quam nam, impedit inventore quos facere natus illum tempora explicabo reiciendis ipsam quo obcaecati expedita sint a autem 
+                        aut ea?</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="div1">
+            <div class="div2">
+                <div class="div3">
+                    <img src="images/1.jpg" alt="">
+                    <p>Saransh Khandelwal</p>
+                </div>
+                <div class="div4">
+                    <p>⭐⭐⭐⭐⭐</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non excepturi quam nam, impedit inventore quos facere natus illum tempora explicabo reiciendis ipsam quo obcaecati expedita sint a autem aut ea?</p>
+                </div>
+            </div>
+            <div class="div2">
+                <div class="div3">
+                    <img src="images/1.jpg" alt="">
+                    <p>Kartik Chauhan</p>
+                </div>
+                <div class="div4">
+                    <p>⭐⭐⭐⭐⭐</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non excepturi quam nam, impedit inventore quos facere natus illum tempora explicabo reiciendis ipsam quo obcaecati expedita sint a autem aut ea?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="form">
+            <div class="h1">
+                <h1 >Please feel free to give a review</h1>
+                <p>😊😊😊</p>
+            </div>
+            <div class="sub-form">
+                <div class="form-control">
+                    <label for="name" id="label-name">
+                        Name
+                    </label>
+
+                    <input type="text"
+                    id="name" placeholder="Enter your name">
+                </div>
+                <div class="form-control">
+                    <label for="email" id="label-email">
+                        Email
+                    </label>
+
+                    <input type="email"
+                    id="email" placeholder="Enter your name">
+                </div>
+                <div class="form-control">
+                    <label for="text" id="label-text">
+                        Review
+                    </label>
+                    <textarea name="message" placeholder="review...."></textarea>
+                </div>
+
+                <button type="submit" value="submit" id="send">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-distributed">
+        <div class="footer-left">
+            <h3>Company<span>logo</span></h3>
+            <p class="footer-links">
+                <a href="#">Home</a> ·
+                <a href="#">Blog</a> ·
+                <a href="#">Pricing</a> ·
+                <a href="#">About</a> ·
+                <a href="#">Faq</a> ·
+                <a href="#">Contact</a>
+            </p>
+            <p class="footer-company-name">Company Name © 2015</p>
+            <div class="footer-icons">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-github"></i></a>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p>Contact Us</p>
+            <form action="#" method="post">
+                <input type="text" name="email" placeholder="Email">
+                <textarea name="message" placeholder="Message"></textarea>
+                <button>Send</button>
+            </form>
+        </div>
+    </footer>
+
+    <script>
+        let menu = document.querySelector('#menu-bar');
+        let navbar = document.querySelector('.topnav');
+        let sendBtn = document.querySelector('#send');
+
+        menu.addEventListener('click', () => {
+            menu.classList.toggle('fa-times');
+            navbar.classList.toggle('active');
+        });
+
+        sendBtn.addEventListener('click', (e) => {
+            panel.innerHTML = `
+
+                Thank You!
+
+                We'll use your feedback to improve our services
+            `
+        })
+    </script>
+</body>
+
+</html>
